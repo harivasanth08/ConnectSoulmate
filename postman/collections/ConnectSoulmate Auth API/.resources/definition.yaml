@@ -1,0 +1,4 @@
+$kind: collection
+description: Authentication and Verification endpoints for ConnectSoulmate application
+variables:
+  baseUrl: http://localhost:5000

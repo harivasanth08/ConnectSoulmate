@@ -1,0 +1,14 @@
+$kind: http-request
+description: Verifies the 6-digit OTP sent to the user's mobile number.
+url: "{{baseUrl}}/api/auth/otp/verify"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "userId": {{userId}},
+      "otp": "{{otp}}"
+    }
+order: 3000

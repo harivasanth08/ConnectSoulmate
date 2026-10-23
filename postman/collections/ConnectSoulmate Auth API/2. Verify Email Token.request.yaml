@@ -1,0 +1,9 @@
+$kind: http-request
+description: Verifies the email verification token sent to the user's email address.
+url: "{{baseUrl}}/api/auth/email/verify/:token"
+method: GET
+pathVariables:
+  - key: token
+    value: REPLACE_WITH_ACTUAL_TOKEN
+    description: The raw email verification token received via email link
+order: 2000

@@ -1,0 +1,19 @@
+$kind: http-request
+description: Registers a new user, sends email verification link, and generates a mobile OTP.
+url: "{{baseUrl}}/api/auth/register"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "fullName": "John Doe",
+      "email": "john.doe@example.com",
+      "mobileNumber": "+919876543299",
+      "gender": "male",
+      "dateOfBirth": "1995-05-15",
+      "password": "SecurePass123!",
+      "confirmPassword": "SecurePass123!"
+    }
+order: 1000

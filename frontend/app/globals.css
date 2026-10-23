@@ -1,0 +1,477 @@
+@import "tailwindcss";
+
+:root {
+  /* =========================================================
+     DARK MODE (Default - Cinematic, Deep Charcoal & Warm Rose-Gold)
+     ========================================================= */
+  --background: #09090d;
+  --foreground: #f8fafc;
+
+  --surface: #12121a;
+  --surface-soft: #191924;
+  --surface-hover: #212130;
+  --surface-card: #151520;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --brand-primary: #e0567b;
+  --brand-pink: #e0567b;
+  --brand-rose: #f43f5e;
+  --brand-purple: #8b5cf6;
+  --brand-gold: #d4af37;
+  --brand-cyan: #06b6d4;
+
+  --border: rgba(255, 255, 255, 0.09);
+  --border-hover: rgba(224, 86, 123, 0.35);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 25px rgba(224, 86, 123, 0.2);
+
+  --wedding-banner-bg: #18121a;
+  --wedding-banner-border: rgba(224, 86, 123, 0.28);
+  --wedding-banner-eyebrow: #f472b6;
+  --wedding-banner-text: #f8fafc;
+  --wedding-banner-subtext: #cbd5e1;
+  --wedding-banner-decor: rgba(224, 86, 123, 0.16);
+  --wedding-banner-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+
+  --btn-secondary-brand-bg: rgba(224, 86, 123, 0.12);
+  --btn-secondary-brand-bg-hover: rgba(224, 86, 123, 0.2);
+  --btn-secondary-brand-border: rgba(224, 86, 123, 0.35);
+  --btn-secondary-brand-border-hover: rgba(224, 86, 123, 0.6);
+  --btn-secondary-brand-text: #fbcfe8;
+  --btn-secondary-brand-text-hover: #ffffff;
+  --btn-secondary-brand-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  --btn-secondary-brand-shadow-hover: 0 2px 8px rgba(224, 86, 123, 0.18);
+}
+
+html.theme-light {
+  /* =========================================================
+     LIGHT MODE (Sophisticated, Warm Alabaster & Burgundy-Rose)
+     ========================================================= */
+  --background: #faf8f5;
+  --foreground: #181721;
+
+  --surface: #ffffff;
+  --surface-soft: #f4f0e8;
+  --surface-hover: #ebe5db;
+  --surface-card: #ffffff;
+
+  --text-primary: #181721;
+  --text-secondary: #4a4856;
+  --text-muted: #827e91;
+
+  --brand-primary: #b83253;
+  --brand-pink: #b83253;
+  --brand-rose: #e11d48;
+  --brand-purple: #7c3aed;
+  --brand-gold: #b8860b;
+  --brand-cyan: #0891b2;
+
+  --border: #e6e0d6;
+  --border-hover: rgba(184, 50, 83, 0.35);
+
+  --shadow-sm: 0 1px 3px rgba(24, 23, 33, 0.05);
+  --shadow-md: 0 4px 14px rgba(24, 23, 33, 0.08);
+  --shadow-lg: 0 10px 28px rgba(24, 23, 33, 0.12);
+  --shadow-glow: 0 0 20px rgba(184, 50, 83, 0.12);
+
+  --wedding-banner-bg: #fff0f4;
+  --wedding-banner-border: #fbcfe8;
+  --wedding-banner-eyebrow: #be185d;
+  --wedding-banner-text: #181721;
+  --wedding-banner-subtext: #4a4856;
+  --wedding-banner-decor: rgba(224, 86, 123, 0.14);
+  --wedding-banner-shadow: 0 4px 16px rgba(224, 86, 123, 0.08);
+
+  --btn-secondary-brand-bg: #fff0f5;
+  --btn-secondary-brand-bg-hover: #fce7f3;
+  --btn-secondary-brand-border: #f472b6;
+  --btn-secondary-brand-border-hover: #e11d48;
+  --btn-secondary-brand-text: #831843;
+  --btn-secondary-brand-text-hover: #700d34;
+  --btn-secondary-brand-shadow: 0 1px 3px rgba(224, 86, 123, 0.08);
+  --btn-secondary-brand-shadow-hover: 0 2px 8px rgba(224, 86, 123, 0.16);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-sans), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-serif), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   TYPOGRAPHY HELPERS
+   ========================================================= */
+.font-serif {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--brand-gold) 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================================================
+   SURFACE & CARD SYSTEM (Restrained Glassmorphism & Hierarchy)
+   ========================================================= */
+
+.surface-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.surface-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.surface-panel {
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+.glass-header {
+  background-color: rgba(9, 9, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.theme-light .glass-header {
+  background-color: rgba(250, 248, 245, 0.88);
+}
+
+/* Legacy support */
+.glass-card {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.glass-panel {
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+}
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-purple) 100%);
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(224, 86, 123, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(224, 86, 123, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: var(--surface-soft);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  font-weight: 500;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+.btn-secondary-brand {
+  background-color: var(--btn-secondary-brand-bg);
+  color: var(--btn-secondary-brand-text);
+  border: 1px solid var(--btn-secondary-brand-border);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  box-shadow: var(--btn-secondary-brand-shadow);
+}
+
+.btn-secondary-brand:hover {
+  background-color: var(--btn-secondary-brand-bg-hover);
+  border-color: var(--btn-secondary-brand-border-hover);
+  color: var(--btn-secondary-brand-text-hover);
+  box-shadow: var(--btn-secondary-brand-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary-brand:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  font-weight: 500;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background-color: var(--surface-soft);
+  color: var(--text-primary);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-soft);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-primary);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .love-particle-container {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   ROMANTIC BACKGROUND ANIMATION & ATMOSPHERIC GLOW
+   ========================================================= */
+
+@keyframes floatRing {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--start-x, 0vw), 105vh, 0) rotate(var(--start-rot, 0deg)) scale(var(--scale, 1));
+  }
+  15% {
+    opacity: var(--peak-opacity, 0.50);
+  }
+  50% {
+    opacity: var(--peak-opacity, 0.50);
+    transform: translate3d(calc(var(--start-x, 0vw) + var(--drift-x, 2vw)), 50vh, 0) rotate(calc(var(--start-rot, 0deg) + 12deg)) scale(calc(var(--scale, 1) * 1.04));
+  }
+  85% {
+    opacity: var(--peak-opacity, 0.50);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--start-x, 0vw) + var(--drift-x, 2vw) * 1.5), -12vh, 0) rotate(calc(var(--start-rot, 0deg) + 24deg)) scale(var(--scale, 1));
+  }
+}
+
+@keyframes floatPetal {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--start-x, 0vw), -10vh, 0) rotate(var(--start-rot, 0deg)) scale(var(--scale, 1));
+  }
+  15% {
+    opacity: var(--peak-opacity, 0.35);
+  }
+  50% {
+    opacity: var(--peak-opacity, 0.35);
+    transform: translate3d(calc(var(--start-x, 0vw) + var(--drift-x, 3vw)), 50vh, 0) rotate(calc(var(--start-rot, 0deg) + 45deg)) scale(calc(var(--scale, 1) * 1.05));
+  }
+  85% {
+    opacity: var(--peak-opacity, 0.35);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--start-x, 0vw) + var(--drift-x, 3vw) * 1.6), 108vh, 0) rotate(calc(var(--start-rot, 0deg) + 90deg)) scale(var(--scale, 1));
+  }
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 0;
+    transform: translate3d(var(--start-x, 0vw), 105vh, 0) rotate(var(--start-rot, 0deg)) scale(var(--scale, 1));
+  }
+  20% {
+    opacity: var(--peak-opacity, 0.35);
+  }
+  50% {
+    opacity: var(--peak-opacity, 0.35);
+    transform: translate3d(calc(var(--start-x, 0vw) + var(--drift-x, 2vw)), 50vh, 0) rotate(var(--mid-rot, 5deg)) scale(var(--scale, 1));
+  }
+  80% {
+    opacity: var(--peak-opacity, 0.35);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--start-x, 0vw) + var(--drift-x, 2vw) * 1.4), -10vh, 0) rotate(var(--end-rot, -5deg)) scale(var(--scale, 1));
+  }
+}
+
+@keyframes pulseSparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: var(--peak-opacity, 0.45);
+    transform: scale(1.25) rotate(45deg);
+  }
+}
+
+.romantic-bg-container {
+  contain: strict;
+  pointer-events: none !important;
+  user-select: none;
+  z-index: 0;
+}
+
+.romantic-element {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none !important;
+  user-select: none;
+  will-change: transform, opacity;
+  line-height: 1;
+}
+
+.ring-element {
+  animation: floatRing var(--duration, 18s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  filter: drop-shadow(0 0 16px rgba(224, 86, 123, 0.45)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.petal-element {
+  animation: floatPetal var(--duration, 14s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  filter: drop-shadow(0 4px 10px rgba(159, 18, 57, 0.35));
+}
+
+.heart-element {
+  animation: floatHeart var(--duration, 22s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  filter: drop-shadow(0 0 12px rgba(244, 63, 94, 0.45));
+}
+
+.sparkle-element {
+  animation: pulseSparkle var(--duration, 5s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.65));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .romantic-bg-container {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   SUBTLE ATMOSPHERIC SECTION TRANSITION GRADIENTS
+   ========================================================= */
+
+.ambient-section-glow {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: -10;
+  border-radius: 9999px;
+  filter: blur(140px);
+  opacity: 0.07;
+  transform: translateZ(0);
+}
+
+@media (max-width: 1024px) {
+  .ambient-section-glow {
+    opacity: 0.05;
+    filter: blur(100px);
+  }
+}
+
+@media (max-width: 640px) {
+  .ambient-section-glow {
+    opacity: 0.03;
+    filter: blur(70px);
+  }
+}
